@@ -57,27 +57,22 @@ class GameObject:
 
 
 class Apple(GameObject):
-    """
-    Класс Apple. Наследуется от GameObject.
-    Появляется в случайном месте поля.
-    """
-    def __init__(self):
-        super().__init__(body_color=APPLE_COLOR)
-    self.randomize_position()
-    
-    def randomize_position(self):
-        """
-        Устанавливает случайные координаты для яблока.
-        """
-        x = randint(0, GRID_WIDTH - 1) * GRID_SIZE
-        y = randint(0, GRID_HEIGHT - 1) * GRID_SIZE
-        self.position = (x, y)
-    
-    def draw(self, surface):
-        """
-        Отрисовывает яблоко на игровом поле.
-        """
+    """Класс, описывающий яблоко."""
 
+    def __init__(self):
+        """Инициализация яблока со случайной позицией."""
+        super().__init__(body_color=APPLE_COLOR)
+        self.randomize_position()
+
+    def randomize_position(self):
+        """Устанавливает случайное положение яблока на игровом поле."""
+        self.position = (
+            randint(0, GRID_WIDTH - 1) * GRID_SIZE,
+            randint(0, GRID_HEIGHT - 1) * GRID_SIZE
+        )
+
+    def draw(self, surface):
+        """Отрисовывает яблоко на игровой поверхности."""
         rect = pygame.Rect(
             self.position[0],
             self.position[1],
