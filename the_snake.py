@@ -52,9 +52,10 @@ class GameObject:
         Аргументы: position (координаты), body_color (цвет).
         """
         if position is None:
-            self.position = (320, 240)
+            self.position = (SCREEN_WIDTH // 2, SCREEN_HEIGHT // 2)
         else:
             self.position = position
+        self.body_color = body_color
    
     def draw(self, surface):
         """
